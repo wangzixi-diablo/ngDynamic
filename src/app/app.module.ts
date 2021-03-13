@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {NgTemplateModule} from './ng-template/ng-template.module';
 import {NgContentModule} from './ng-content/ng-content.module';
 import {NgContainerModule} from './ng-container/ng-container.module';
+import { NgTemplateComponent } from './ng-template/ng-template.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import {NgContainerModule} from './ng-container/ng-container.module';
         AppRoutingModule
     ],
     providers: [],
-    bootstrap: [AppComponent]
+    //bootstrap: [AppComponent]
+    bootstrap: [NgTemplateComponent]
 })
 export class AppModule {
 }

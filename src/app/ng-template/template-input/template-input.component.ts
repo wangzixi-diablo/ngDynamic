@@ -9,8 +9,7 @@ import {Component, Input, TemplateRef} from '@angular/core';
         </ng-template>
         <ng-container *ngTemplateOutlet="inputTemplate ? inputTemplate: defaultTemplate"></ng-container>
 
-    `,
-    styleUrls: ['./template-input.component.less']
+    `
 })
 export class TemplateInputComponent {
 

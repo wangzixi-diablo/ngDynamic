@@ -11,13 +11,13 @@ export class NgTemplateComponent implements AfterViewInit {
     @ViewChild('tpl')
     tplRef: TemplateRef<any>;
 
-    myContext = {$implicit: '默认值', name: 'tuacy'};
+    myContext = {$implicit: '默认值', name: 'Jerry'};
 
     constructor(private vcRef: ViewContainerRef) {
     }
 
     ngAfterViewInit(): void {
-        this.vcRef.createEmbeddedView(this.tplRef);
+        // this.vcRef.createEmbeddedView(this.tplRef);
     }
 
 }
