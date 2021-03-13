@@ -4,7 +4,7 @@ import {Component, Input} from '@angular/core';
     selector: 'app-content-child',
     template: `
         <p>
-            this is hard code parent: {{title}}
+            在子cp中显示父cp传入的值: {{title}}
         </p>
     `
 })

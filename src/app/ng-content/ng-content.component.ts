@@ -3,13 +3,12 @@ import {ContentChildComponent} from './child/content-child.component';
 
 @Component({
     selector: 'app-ng-content',
-    templateUrl: './ng-content.component.html',
-    styleUrls: ['./ng-content.component.less']
+    templateUrl: './ng-content.component.html'
 })
 export class NgContentComponent implements AfterViewInit {
 
-    title_0 = 'child_0';
-    title_1 = 'child_1';
+    title_0 = '定义在父cp里，传给子cp1';
+    title_1 = '定义在父cp里，传给子cp2';
 
     @ViewChild('section_child_0')
     child0: ContentChildComponent;

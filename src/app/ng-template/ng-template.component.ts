@@ -2,8 +2,7 @@ import {AfterViewInit, Component, TemplateRef, ViewChild, ViewContainerRef} from
 
 @Component({
     selector: 'app-ng-template',
-    templateUrl: './ng-template.component.html',
-    styleUrls: ['./ng-template.component.less']
+    templateUrl: './ng-template.component.html'
 })
 export class NgTemplateComponent implements AfterViewInit {
 

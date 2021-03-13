@@ -14,6 +14,7 @@ export class ContentSectionComponent implements AfterContentInit {
 
     @ContentChild('section_child_0')
     childOne: ContentChildComponent;
+    
     @ContentChildren(ContentChildComponent)
     childrenList: QueryList<ContentChildComponent>;
 
