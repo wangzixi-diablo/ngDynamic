@@ -1,0 +1,12 @@
+<app-example-zippy [templateRefPassedOutside] = "jerry" expanded = true>
+  <!--<button type="button" appExampleZippyToggle>Is content project cool?</button>-->
+  <ng-template appExampleZippyContent>
+    It depends on what you do with it.
+  </ng-template>
+</app-example-zippy>
+
+<ng-template #jerry>
+  <div>I am Jerry</div>
+</ng-template>
+
+

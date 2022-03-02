@@ -1,7 +1,7 @@
 
 
-<!-- 通过ngIf结构型指令显示ng-template的内容 
-<div class="lessons-list" *ngIf="!condition else elseTemplate">
+<!-- 通过ngIf结构型指令显示ng-template的内容  
+<div class="lessons-list" *ngIf="condition else elseTemplate">
     <h3>标题:判断条件为真</h3>
 </div>
 <ng-template #elseTemplate>
@@ -11,14 +11,14 @@
 
 <!-- 通过ViewContainerRef和TemplateRef直接把ng-template对应的元素加入到DOM结构中(这种情况应该用的比较少) -->
 
-<!--
+<!---
 <ng-template #tpl>
     <div>
         Hello, ng-template!
     </div>
 </ng-template>
 <br>
--->
+->
 
 <!--
 <ng-template #inputTemplate>
@@ -39,11 +39,25 @@
     <div>参数1: {{param}}</div>
     <div>参数2: {{name}}</div>
 </ng-template>
+
 <ng-container *ngTemplateOutlet="inputTemplateWithContent; context: myContext"></ng-container>
-<br>-->
+<br>
+
+-->
+
+<!--
+    如何将 ng-template 作为参数传递给*ngTemplateOutlet
 
 <ng-template #paramTemplate>
-    <div>我是#paramTemplate里的参数</div>
+    <div>我是#paramTemplate里的 div 标签</div>
 </ng-template>
 
-<app-template-input [inputTemplate]="paramTemplate"></app-template-input>
+<app-template-input [inputTemplate]='paramTemplate'></app-template-input>
+
+-->
+<input #phone />
+
+<!-- lots of other elements -->
+
+<!-- phone refers to the input element; pass its `value` to an event handler -->
+<button type="button" (click)="callPhone(phone.value + condition)">Call</button>

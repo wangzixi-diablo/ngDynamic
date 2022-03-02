@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
@@ -18,5 +18,8 @@ import { TemplateInputComponent } from './template-input/template-input.componen
         NgTemplateRoutingModule
     ]
 })
-export class NgTemplateModule {
+export class NgTemplateModule implements OnInit {
+    ngOnInit(): void {
+        console.log("NgTemplateModule init.");
+    }
 }

@@ -1,4 +1,4 @@
-<h1>ng-content</h1>
+<!--<h1>ng-content</h1>
 <br>
 
 <app-content-section>
@@ -11,6 +11,17 @@
     <p name="test">我是第七号位置 p [name="test"]</p>
     <p>测试测试测试测试</p>
     <div>这个div会跑到绿色区域内</div>
-    <app-content-child #section_child_0 [title]="title_0"></app-content-child>
-    <app-content-child #section_child_1 [title]="title_1"></app-content-child>
+    <app-content-child #section_child_0 [title]="title_0">
+        <p>不会显示出来</p>
+    </app-content-child>
+    <app-content-child #section_child_1 [title]="title_1">
+        <p>不会显示出来</p>
+    </app-content-child>
 </app-content-section>
+-->
+<app-zippy-basic>
+    <p question>
+        带了问号的 p 节点
+      </p>
+      <p>普通 p 节点</p>
+</app-zippy-basic>
