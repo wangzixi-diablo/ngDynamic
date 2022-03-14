@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren, OnInit, Directive, Input, ChangeDetectorRef} from '@angular/core';
 import {ContentChildComponent} from './child/content-child.component';
+
 
 @Component({
     selector: 'app-ng-content',
@@ -26,4 +27,41 @@ export class NgContentComponent implements AfterViewInit, OnInit {
         });
     }
 
+}
+
+
+@Directive({selector: 'pane'})
+export class Pane {
+  @Input() id!: string;
+}
+
+@Component({
+  selector: 'example-app',
+  template: `
+    <pane id="1" *ngIf="shouldShow"></pane>
+    <pane id="2" *ngIf="!shouldShow"></pane>
+
+    <button (click)="toggle()">Toggle</button>
+    <div id="panel 1?" #pane999>1</div>
+    <div id="panel 2?" pane>2</div>
+    <div>Selected: {{selectedPane}}</div>
+  `,
+})
+export class ViewChildComp {
+
+  constructor(public changeDetectorRef: ChangeDetectorRef
+    ){}
+  @ViewChild("pane999")
+  set panethis(v) {
+    //setTimeout(()=> this.selectedPane = v.id, 0);
+    this.selectedPane = v.id;
+    this.changeDetectorRef.detectChanges();
+
+    //Promise.resolve().then(() => this.selectedPane = v.id);
+  }
+  selectedPane: string = '';
+  shouldShow = true;
+  toggle() {
+    this.shouldShow = !this.shouldShow;
+  }
 }

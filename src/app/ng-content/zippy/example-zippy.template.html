@@ -1,7 +1,7 @@
 <ng-content></ng-content>
 <div *ngIf="expanded" [id]="contentId">
+    
     <ng-container [ngTemplateOutlet]="content.templateRef"></ng-container>
     
-    <!--<ng-container [ngTemplateOutlet]="templateRefPassedOutside"></ng-container>
-    <p>只有当 expanded 为 true 时才能看得到</p>-->
+    <p>只有当 expanded 为 true 时才能看得到</p>
 </div>

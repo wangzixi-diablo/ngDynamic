@@ -26,7 +26,7 @@ import { JerryAppComponent } from './ng-content/zippy/zippy.app.component';
         AppRoutingModule
     ],
     providers: [],
-    bootstrap: [JerryAppComponent]
+    bootstrap: [NgContentComponent]
     //bootstrap: [NgContentComponent]
 })
 export class AppModule implements OnInit {
