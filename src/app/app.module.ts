@@ -9,7 +9,7 @@ import {NgTemplateModule} from './ng-template/ng-template.module';
 import {NgContentModule} from './ng-content/ng-content.module';
 import {NgContainerModule} from './ng-container/ng-container.module';
 import { NgTemplateComponent } from './ng-template/ng-template.component';
-import { NgContentComponent } from './ng-content/ng-content.component';
+import { NgContentComponent, NameEditorComponent } from './ng-content/ng-content.component';
 import { JerryAppComponent } from './ng-content/zippy/zippy.app.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { JerryAppComponent } from './ng-content/zippy/zippy.app.component';
         AppRoutingModule
     ],
     providers: [],
-    bootstrap: [NgContentComponent]
+    bootstrap: [NameEditorComponent]
     //bootstrap: [NgContentComponent]
 })
 export class AppModule implements OnInit {

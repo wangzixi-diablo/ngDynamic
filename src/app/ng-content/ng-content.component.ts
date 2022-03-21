@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren, OnInit, Directive, Input, ChangeDetectorRef} from '@angular/core';
 import {ContentChildComponent} from './child/content-child.component';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -64,4 +65,12 @@ export class ViewChildComp {
   toggle() {
     this.shouldShow = !this.shouldShow;
   }
+}
+
+@Component({
+  selector: 'app-name-editor',
+  templateUrl: './name-editor.component.html',
+})
+export class NameEditorComponent {
+  name = new FormControl('Jerry');
 }
