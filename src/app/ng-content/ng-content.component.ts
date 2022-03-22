@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren, OnInit, Directive, Input, ChangeDetectorRef} from '@angular/core';
 import {ContentChildComponent} from './child/content-child.component';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 
 @Component({
@@ -74,23 +74,35 @@ export class ViewChildComp {
 export class NameEditorComponent {
   name = new FormControl('Jerry');
 
-  profileForm = new FormGroup({
+  /*profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     address: new FormGroup({
       street: new FormControl(''),
       city: new FormControl(''),
     })
+  });*/
+  profileForm = this.fb.group({
+    firstName: ['Jerry'],
+    lastName: ['LastName',Validators.required],
+    address: this.fb.group({
+      street: [''],
+      city: ['']
+    }),
+    aliases: this.fb.array([
+      this.fb.control('kk')
+    ])
   });
   
-  constructor(){
+  constructor(private fb: FormBuilder){
     this.name.valueChanges.subscribe(selectedValue => {
       console.log('value changed: ', selectedValue);
     });
 
     this.profileForm.valueChanges.subscribe(
       value => {
-        console.log('group value: ', value);
+        console.log('group value: ', value, ' status: ', 
+        this.profileForm.status);
       }
     );
   }
@@ -107,5 +119,13 @@ export class NameEditorComponent {
 
   onSubmit(){
     console.warn(this.profileForm.value);
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  get aliases() {
+    return this.profileForm.get('aliases') as FormArray;
   }
 }
