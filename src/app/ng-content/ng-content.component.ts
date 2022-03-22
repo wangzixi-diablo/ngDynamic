@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, ContentChildren, QueryList, ViewChild, ViewChildren, OnInit, Directive, Input, ChangeDetectorRef} from '@angular/core';
 import {ContentChildComponent} from './child/content-child.component';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -73,4 +73,35 @@ export class ViewChildComp {
 })
 export class NameEditorComponent {
   name = new FormControl('Jerry');
+
+  profileForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+  });
+  
+  constructor(){
+    this.name.valueChanges.subscribe(selectedValue => {
+      console.log('value changed: ', selectedValue);
+    });
+
+    this.profileForm.valueChanges.subscribe(
+      value => {
+        console.log('group value: ', value);
+      }
+    );
+  }
+  updateName() {
+    this.name.setValue('Nancy');
+
+    this.profileForm.setValue(
+      {
+        firstName: 'Tom',
+        lastName: "Tom1"
+      }
+    );
+  }
+
+  onSubmit(){
+    console.warn(this.profileForm.value);
+  }
 }
